@@ -1,126 +1,71 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import axios from "axios";
-import { BsFillExclamationDiamondFill } from "react-icons/bs";
-import { ImSpinner2 } from "react-icons/im";
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Login() {
-  /* navigate, state & handleChange*/
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [dataForm, setDataForm] = useState({
-    email: "",
-    password: "",
-  });
 
-  const handleChange = (evt) => {
-    const { name, value } = evt.target;
-    setDataForm({
-      ...dataForm,
-      [name]: value,
-    });
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Validasi sesuai permintaanmu
+    if (email === 'kaye@gmail.com' && password === 'kayepass') {
+      navigate('/');
+    } else {
+      setError('Email atau Password salah! (Cek instruksi)');
+    }
   };
-  /* process form */
- const handleSubmit = async (e) => {
-  e.preventDefault();
 
-  // ✅ VALIDASI REQUIRED
-  if (!dataForm.email || !dataForm.password) {
-    setError("Username and password required");
-    return;
-  }
-
-  setLoading(true);
-  setError("");
-
-  axios
-    .post("https://dummyjson.com/auth/login", { // ✅ endpoint BENAR
-      username: dataForm.email,
-      password: dataForm.password,
-    })
-    .then((response) => {
-      if (response.status !== 200) {
-        setError(response.data.message);
-        return;
-      }
-
-      navigate("/");
-    })
-    .catch((err) => {
-      if (err.response) {
-        setError(err.response.data.message || "Invalid credentials");
-      } else {
-        setError("Terjadi kesalahan");
-      }
-    })
-    .finally(() => {
-      setLoading(false);
-    });
-  };
-  /* error & loading status */
-  const errorInfo = error ? (
-    <div className="bg-red-200 mb-5 p-5 text-sm font-light text-gray-600 rounded flex items-center">
-      <BsFillExclamationDiamondFill className="text-red-600 me-2 text-lg" />
-      {error}
-    </div>
-  ) : null;
-
-  const loadingInfo = loading ? (
-    <div className="bg-gray-200 mb-5 p-5 text-sm rounded flex items-center">
-      <ImSpinner2 className="me-2 animate-spin" />
-      Mohon Tunggu...
-    </div>
-  ) : null;
   return (
-    <div>
-      <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">
-        Welcome Back 👋
-      </h2>
-
-      {errorInfo}
-      {loadingInfo}
-
-      <form onSubmit={handleSubmit}>
-        {/* EMAIL */}
-        <div className="mb-5">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Email Address
-          </label>
-          <input
-            type="text"
-            id="email"
-            name="email" // ✅ WAJIB
-            onChange={handleChange} // ✅ WAJIB
-            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400"
-            placeholder="you@example.com"
-          />
+    <div className="min-h-screen bg-[#0B0F1A] flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-[#1E293B]/50 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl shadow-2xl">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl font-black text-white tracking-tighter">
+            FIT<span className="text-cyan-500">LIFE.</span>
+          </h1>
+          <p className="text-slate-400 mt-2 font-medium">Welcome Back, Captain! 👋</p>
         </div>
 
-        {/* PASSWORD */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password" // ✅ WAJIB
-            onChange={handleChange} // ✅ WAJIB
-            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400"
-            placeholder="********"
-          />
-        </div>
+        <form onSubmit={handleLogin} className="space-y-6">
+          {error && <p className="text-red-400 text-xs text-center bg-red-400/10 py-2 rounded-lg border border-red-400/20">{error}</p>}
+          
+          <div>
+            <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Email Address</label>
+            <input 
+              type="email" 
+              className="w-full bg-slate-900/50 border border-slate-700 focus:border-cyan-500 rounded-xl py-3 px-4 mt-2 text-white outline-none transition-all"
+              placeholder="kaye@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        {/* BUTTON */}
-        <button
-          type="submit"
-          className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
-        >
-          Login
-        </button>
-      </form>
+          <div>
+            <div className="flex justify-between ml-1">
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Password</label>
+              <Link to="/forgot" className="text-xs text-cyan-500 hover:underline">Forgot?</Link>
+            </div>
+            <input 
+              type="password" 
+              className="w-full bg-slate-900/50 border border-slate-700 focus:border-cyan-500 rounded-xl py-3 px-4 mt-2 text-white outline-none transition-all"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-black py-4 rounded-xl shadow-lg shadow-cyan-900/20 transition-all transform active:scale-95">
+            LOG IN
+          </button>
+        </form>
+
+        <p className="text-center text-slate-500 text-sm mt-8">
+          Don't have an account? <Link to="/register" className="text-cyan-500 font-bold hover:underline">Register</Link>
+        </p>
+      </div>
     </div>
   );
 }

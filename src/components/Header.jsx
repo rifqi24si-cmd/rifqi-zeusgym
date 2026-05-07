@@ -1,101 +1,61 @@
 import React, { useState } from 'react';
-import orders from '../data/orders';
+import { HiSearch, HiOutlineBell, HiOutlineCog } from 'react-icons/hi';
 
 const Header = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-
-  // Filter data berdasarkan input search (Materi Pertemuan 4)
-  const filteredResults = searchTerm === "" ? [] : orders.filter(item =>
-    item.customer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.menu.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <header className="bg-white border-b border-gray-100 px-8 py-4 flex items-center justify-between sticky top-0 z-50">
-      
-      {/* 1. SEARCH BAR AREA */}
-      <div className="relative w-1/3">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search Here..."
-            className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-4 pl-11 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-sm"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <span className="absolute left-4 top-2.5 text-gray-400">🔍</span>
+    <>
+      <header className="bg-[#0F172A]/80 backdrop-blur-md h-20 px-8 flex items-center justify-between border-b border-slate-800 sticky top-0 z-40">
+        {/* Search Bar ala Dark Mode */}
+        <div 
+          onClick={() => setIsSearchOpen(true)}
+          className="flex items-center gap-3 bg-slate-800/50 border border-slate-700 px-4 py-2.5 rounded-xl w-96 cursor-pointer hover:border-cyan-500/50 transition-all group"
+        >
+          <HiSearch className="text-slate-500 group-hover:text-cyan-400" size={20} />
+          <span className="text-slate-500 text-sm font-medium">Search anything...</span>
         </div>
 
-        {/* Search Results Dropdown - Muncul kalau ada ketikan */}
-        {searchTerm && (
-          <div className="absolute mt-2 w-full bg-white border border-gray-100 rounded-xl shadow-xl max-h-60 overflow-y-auto">
-            {filteredResults.length > 0 ? (
-              filteredResults.map(res => (
-                <div key={res.id} className="p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-50 last:border-0">
-                  <p className="font-bold text-sm text-gray-800">{res.customer}</p>
-                  <p className="text-xs text-gray-500">{res.menu} - {res.total}</p>
-                </div>
-              ))
-            ) : (
-              <p className="p-4 text-sm text-gray-400 text-center">Data tidak ditemukan...</p>
-            )}
+        <div className="flex items-center gap-6 text-white">
+          <div className="flex gap-4 border-r border-slate-700 pr-6 text-slate-400">
+            <button className="hover:text-cyan-400 transition-colors"><HiOutlineBell size={22} /></button>
+            <button className="hover:text-cyan-400 transition-colors"><HiOutlineCog size={22} /></button>
           </div>
-        )}
-      </div>
-
-      {/* 2. ACTIONS AREA (Icons & Profile) */}
-      <div className="flex items-center gap-4">
-        {/* Notifikasi Icon */}
-        <div className="relative p-2 bg-blue-50 text-blue-600 rounded-xl cursor-pointer hover:bg-blue-100 transition">
-          🔔 <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white font-bold">50</span>
-        </div>
-
-        {/* Analytics Icon */}
-        <div className="p-2 bg-cyan-50 text-cyan-600 rounded-xl cursor-pointer hover:bg-cyan-100 transition">
-          📊
-        </div>
-
-        {/* Settings Icon */}
-        <div className="p-2 bg-red-50 text-red-600 rounded-xl cursor-pointer hover:bg-red-100 transition mr-2">
-          ⚙️
-        </div>
-
-        {/* PROFILE SECTION */}
-        <div className="h-8 w-[1px] bg-gray-200 mx-2"></div>
-        
-        <div className="relative">
-          <div 
-            className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded-lg transition"
-            onClick={() => setIsProfileOpen(!isProfileOpen)}
-          >
-            <div className="text-right hidden md:block">
-              <p className="text-xs text-gray-400">Hello,</p>
-              <p className="text-sm font-bold text-gray-800 leading-tight">Rifqi Al Shirazi</p>
+          <div className="flex items-center gap-3">
+            <div className="text-right">
+              <p className="text-sm font-bold">Rifqi Al Shirazi</p>
+              <p className="text-[10px] text-cyan-400 font-bold uppercase tracking-tighter">Head Admin</p>
             </div>
-            <img 
-              src="https://ui-avatars.com/api/?name=Rifqi+Al+Shirazi&background=random" 
-              alt="Avatar" 
-              className="w-10 h-10 rounded-full border-2 border-blue-100 shadow-sm"
-            />
+            <div className="w-10 h-10 bg-gradient-to-tr from-cyan-500 to-violet-500 rounded-full flex items-center justify-center font-bold shadow-lg border-2 border-slate-800">
+              RS
+            </div>
           </div>
+        </div>
+      </header>
 
-          {/* Profile Dropdown Menu - Materi Pertemuan 6 (Conditional Rendering) */}
-          {isProfileOpen && (
-            <div className="absolute right-0 mt-3 w-48 bg-white border border-gray-100 rounded-xl shadow-xl py-2 overflow-hidden animate-in fade-in zoom-in duration-200">
-              <div className="px-4 py-2 border-b border-gray-50">
-                <p className="text-xs text-gray-400 font-medium">Account Settings</p>
+      {/* MODAL SEARCH DARK THEME */}
+      {isSearchOpen && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 backdrop-blur-xl bg-black/60 shadow-2xl">
+          <div className="bg-[#1E293B] w-full max-w-2xl rounded-3xl border border-slate-700 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+            <div className="p-8">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-black text-white italic italic">SEARCH <span className="text-cyan-400">FITLIFE</span></h2>
+                <button onClick={() => setIsSearchOpen(false)} className="text-slate-500 hover:text-white">✕</button>
               </div>
-              <a href="#profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">My Profile</a>
-              <a href="#settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">Security</a>
-              <div className="border-t border-gray-50 mt-2">
-                <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition font-medium">Log Out</button>
+              <div className="relative">
+                <HiSearch className="absolute left-5 top-5 text-cyan-500" size={24} />
+                <input 
+                  autoFocus
+                  className="w-full bg-slate-900 border-2 border-slate-700 focus:border-cyan-500 rounded-2xl py-5 pl-14 pr-6 outline-none text-white transition-all shadow-2xl"
+                  placeholder="Find members, equipment..."
+                />
               </div>
             </div>
-          )}
+          </div>
+          <div className="absolute inset-0 -z-10" onClick={() => setIsSearchOpen(false)}></div>
         </div>
-      </div>
-    </header>
+      )}
+    </>
   );
 };
 

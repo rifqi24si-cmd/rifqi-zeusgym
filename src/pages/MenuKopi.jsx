@@ -1,11 +1,11 @@
 import React from 'react';
 
-const MejaKopi = () => {
+const AlatGym = () => {
   const tables = [
-    { id: 1, name: "Meja 01", status: "Terisi", type: "Indoor" },
-    { id: 2, name: "Meja 02", status: "Kosong", type: "Outdoor" },
-    { id: 3, name: "Meja 03", status: "Terisi", type: "Indoor" },
-    { id: 4, name: "Meja 04", status: "Kosong", type: "Indoor" },
+    { id: 1, name: "Treadmill", status: "Terisi", type: "Indoor" },
+    { id: 2, name: "Elliptical Machiine", status: "Kosong", type: "Outdoor" },
+    { id: 3, name: "Dumbbells", status: "Terisi", type: "Indoor" },
+    { id: 4, name: "Barbells", status: "Kosong", type: "Indoor" },
   ];
 
   return (
@@ -29,4 +29,4 @@ const MejaKopi = () => {
   );
 };
 
-export default MejaKopi;
+export default AlatGym;
