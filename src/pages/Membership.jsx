@@ -4,7 +4,7 @@ import membership from "../data/membership";
 export default function Membership() {
   return (
     <div>
-      <PageHeader title="Membership" subtitle="Paket keanggotaan FitLife Gym" />
+      <PageHeader title="Membership" subtitle="Paket keanggotaan Zeus Gym" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {membership.map((m) => (
           <div key={m.id} className="bg-white rounded-xl shadow-sm p-6 border-t-4 border-blue-400">

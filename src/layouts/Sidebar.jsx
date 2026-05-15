@@ -13,7 +13,7 @@ const Sidebar = () => {
     <div className="w-64 bg-[#0F172A] h-screen border-r border-slate-800 p-6 flex flex-col transition-all">
       <div className="mb-10 px-4">
         <h1 className="text-2xl font-black text-white tracking-tighter">
-          Fit<span className="text-cyan-400">Life.</span>
+          Zeus<span className="text-cyan-400">Gym</span>
         </h1>
         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em]">Gym Dashboard</p>
       </div>

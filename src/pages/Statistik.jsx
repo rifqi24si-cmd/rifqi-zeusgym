@@ -16,7 +16,7 @@ export default function Statistik() {
 
   return (
     <div>
-      <PageHeader title="Statistik" subtitle="Ringkasan data FitLife Gym" />
+      <PageHeader title="Statistik" subtitle="Ringkasan data Zeus Gym" />
 
       {/* Periode Filter */}
       <div className="flex gap-2 mb-6">

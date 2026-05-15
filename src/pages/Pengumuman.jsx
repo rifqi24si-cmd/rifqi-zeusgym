@@ -7,7 +7,7 @@ export default function Pengumuman() {
 
   return (
     <div>
-      <PageHeader title="Pengumuman" subtitle="Info terbaru dari FitLife Gym" />
+      <PageHeader title="Pengumuman" subtitle="Info terbaru dari Zeus Gym" />
       <div className="grid grid-cols-1 gap-4">
         {pengumuman.map((p) => (
           <div key={p.id}

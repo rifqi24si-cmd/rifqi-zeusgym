@@ -5,7 +5,7 @@ import trainers from "../data/trainers";
 export default function Trainers() {
   return (
     <div>
-      <PageHeader title="Trainers" subtitle="Daftar semua trainer FitLife" />
+      <PageHeader title="Trainers" subtitle="Daftar semua trainer Zeus Gym" />
       <Table headers={["#", "Nama", "Spesialisasi", "Pengalaman", "Rating"]}>
         {trainers.map((t) => (
           <tr key={t.id} className="border-b last:border-0">

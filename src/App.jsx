@@ -7,6 +7,7 @@ import Loading from "./components/Loading";
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Orders = lazy(() => import("./pages/Orders"));
 const Customers = lazy(() => import("./pages/Customers"));
+const CustomerDetail = lazy(() => import("./pages/CustomerDetail"));
 const Trainers = lazy(() => import("./pages/Trainers"));
 const Jadwal = lazy(() => import("./pages/Jadwal"));
 const Profile = lazy(() => import("./pages/Profile"));
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
+          <Route path="/customers/:id" element={<CustomerDetail />} />
           <Route path="/trainers" element={<Trainers />} />
           <Route path="/jadwal" element={<Jadwal />} />
           <Route path="/profile" element={<Profile />} />

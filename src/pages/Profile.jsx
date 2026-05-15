@@ -3,14 +3,14 @@ import PageHeader from "../components/PageHeader";
 export default function Profile() {
   return (
     <div>
-      <PageHeader title="Profil Gym" subtitle="Informasi FitLife Gym" />
+      <PageHeader title="Profil Gym" subtitle="Informasi Zeus Gym" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h2 className="text-lg font-semibold text-gray-700 mb-4">Informasi Gym</h2>
           <div className="space-y-3 text-sm">
             <div className="flex justify-between border-b pb-2">
               <span className="text-gray-400">Nama</span>
-              <span className="font-medium">FitLife Gym</span>
+              <span className="font-medium">Zeus Gym</span>
             </div>
             <div className="flex justify-between border-b pb-2">
               <span className="text-gray-400">Alamat</span>
@@ -22,7 +22,7 @@ export default function Profile() {
             </div>
             <div className="flex justify-between border-b pb-2">
               <span className="text-gray-400">Email</span>
-              <span className="font-medium">fitlife@gym.com</span>
+              <span className="font-medium">zeus@gym.com</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-400">Jam Buka</span>

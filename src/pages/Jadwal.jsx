@@ -5,7 +5,7 @@ import jadwal from "../data/jadwal";
 export default function Jadwal() {
   return (
     <div>
-      <PageHeader title="Jadwal Kelas" subtitle="Jadwal kelas mingguan FitLife" />
+      <PageHeader title="Jadwal Kelas" subtitle="Jadwal kelas mingguan Zeus Gym" />
       <Table headers={["#", "Hari", "Kelas", "Waktu", "Trainer", "Kuota"]}>
         {jadwal.map((j) => (
           <tr key={j.id} className="border-b last:border-0">

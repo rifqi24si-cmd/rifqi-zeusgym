@@ -39,7 +39,7 @@ const Header = () => {
           <div className="bg-[#1E293B] w-full max-w-2xl rounded-3xl border border-slate-700 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
             <div className="p-8">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-black text-white italic italic">SEARCH <span className="text-cyan-400">FITLIFE</span></h2>
+                <h2 className="text-xl font-black text-white italic italic">SEARCH <span className="text-cyan-400">ZEUS GYM</span></h2>
                 <button onClick={() => setIsSearchOpen(false)} className="text-slate-500 hover:text-white">✕</button>
               </div>
               <div className="relative">

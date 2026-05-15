@@ -11,7 +11,7 @@ const stats = [
 export default function Dashboard() {
   return (
     <div>
-      <PageHeader title="Dashboard" subtitle="Selamat datang di FitLife Dashboard" />
+      <PageHeader title="Dashboard" subtitle="Selamat datang di Zeus Gym Dashboard" />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {stats.map((stat) => (
           <div key={stat.label} className="bg-white rounded-xl shadow-sm p-5">

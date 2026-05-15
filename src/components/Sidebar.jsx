@@ -23,7 +23,7 @@ export default function Sidebar() {
     <div className="w-56 min-h-screen bg-white shadow-md flex flex-col p-4">
       {/* Logo Section */}
       <h1 className="text-2xl font-bold mb-2">
-        FitLife<span className="text-blue-500">.</span>
+        ZeusGym<span className="text-blue-500">.</span>
       </h1>
       <p className="text-xs text-gray-400 mb-8 font-medium">Gym Dashboard</p>
 

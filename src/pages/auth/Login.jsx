@@ -22,7 +22,7 @@ export default function Login() {
       <div className="w-full max-w-md bg-[#1E293B]/50 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl shadow-2xl">
         <div className="text-center mb-10">
           <h1 className="text-3xl font-black text-white tracking-tighter">
-            FIT<span className="text-cyan-500">LIFE.</span>
+            ZEUS<span className="text-cyan-500">GYM.</span>
           </h1>
           <p className="text-slate-400 mt-2 font-medium">Welcome Back, Captain! 👋</p>
         </div>
