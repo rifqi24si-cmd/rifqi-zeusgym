@@ -10,6 +10,7 @@ const menus = [
   { name: "Members", path: "/customers", icon: <FaUsers /> },
   { name: "Trainers", path: "/trainers", icon: <MdFitnessCenter /> },
   { name: "Peralatan", path: "/menu", icon: <GiWeightLiftingUp /> },
+  { name: "Hooks", path: "/hooks", icon: <MdExtension /> },
   { name: "Fitur XYZ", path: "/fitur-xyz", icon: <MdExtension /> },
   { name: "Profil Gym", path: "/profile", icon: <MdPerson /> },
   { name: "Error 400", path: "/error/400", icon: <BsExclamationCircle /> },

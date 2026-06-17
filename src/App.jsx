@@ -25,6 +25,7 @@ const Absensi = lazy(() => import("./pages/Absensi"));
 const Membership = lazy(() => import("./pages/Membership"));
 const Pengumuman = lazy(() => import("./pages/Pengumuman"));
 const FiturXYZ = lazy(() => import("./pages/FiturXYZ"));
+const Hooks = lazy(() => import("./pages/Hooks"));
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="/absensi" element={<Absensi />} />
           <Route path="/membership" element={<Membership />} />
           <Route path="/pengumuman" element={<Pengumuman />} />
+          <Route path="/hooks" element={<Hooks />} />
           <Route path="/fitur-xyz" element={<FiturXYZ />} />
         </Route>
 
