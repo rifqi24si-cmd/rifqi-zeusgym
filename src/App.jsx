@@ -4,6 +4,8 @@ import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import Loading from "./components/Loading";
 
+import Footer from "./components/Footer";
+
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Orders = lazy(() => import("./pages/Orders"));
 const Customers = lazy(() => import("./pages/Customers"));
@@ -22,11 +24,13 @@ const Statistik = lazy(() => import("./pages/Statistik"));
 const Absensi = lazy(() => import("./pages/Absensi"));
 const Membership = lazy(() => import("./pages/Membership"));
 const Pengumuman = lazy(() => import("./pages/Pengumuman"));
+const FiturXYZ = lazy(() => import("./pages/FiturXYZ"));
 
 function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
+
         <Route element={<MainLayout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
@@ -42,6 +46,7 @@ function App() {
           <Route path="/absensi" element={<Absensi />} />
           <Route path="/membership" element={<Membership />} />
           <Route path="/pengumuman" element={<Pengumuman />} />
+          <Route path="/fitur-xyz" element={<FiturXYZ />} />
         </Route>
 
         <Route element={<AuthLayout />}>
@@ -50,8 +55,11 @@ function App() {
           <Route path="/forgot" element={<Forgot />} />
         </Route>
 
+
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+    
     </Suspense>
   );
 }

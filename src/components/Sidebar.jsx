@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { MdDashboard, MdFitnessCenter, MdPerson } from "react-icons/md";
+import { MdDashboard, MdFitnessCenter, MdPerson, MdExtension } from "react-icons/md";
 import { FaUsers, FaCalendarAlt } from "react-icons/fa";
 import { BsExclamationCircle } from "react-icons/bs";
 import { GiWeightLiftingUp } from "react-icons/gi";
@@ -10,6 +10,7 @@ const menus = [
   { name: "Members", path: "/customers", icon: <FaUsers /> },
   { name: "Trainers", path: "/trainers", icon: <MdFitnessCenter /> },
   { name: "Peralatan", path: "/menu", icon: <GiWeightLiftingUp /> },
+  { name: "Fitur XYZ", path: "/fitur-xyz", icon: <MdExtension /> },
   { name: "Profil Gym", path: "/profile", icon: <MdPerson /> },
   { name: "Error 400", path: "/error/400", icon: <BsExclamationCircle /> },
   { name: "Error 401", path: "/error/401", icon: <BsExclamationCircle /> },
